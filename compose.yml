@@ -1,0 +1,8 @@
+services:
+  fizzbuzzbackend:
+    build: ./      
+    container_name: fizzbuzzbackend
+    ports:
+      - "5001:6000"
+    environment:
+      - DOTNET_ENVIRONMENT=Development

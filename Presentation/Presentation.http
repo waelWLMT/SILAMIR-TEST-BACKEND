@@ -1,0 +1,12 @@
+@Presentation_HostAddress = http://localhost:5108
+
+POST {{Presentation_HostAddress}}/api/fizzbuzz/generate
+Content-Type: application/json
+
+{
+  "limit": 15,
+  "divisors": {
+    "3": "FIZZ",
+    "5": "BUZZ"
+  }
+}
