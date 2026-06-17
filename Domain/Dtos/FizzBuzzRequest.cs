@@ -9,6 +9,6 @@ namespace Domain.Dtos
     public class FizzBuzzRequest
     {
         public int Limit { get; set; }
-        public Dictionary<int, string> Divisors { get; set; }
+        public required Dictionary<int, string> Divisors { get; set; }
     }
 }
