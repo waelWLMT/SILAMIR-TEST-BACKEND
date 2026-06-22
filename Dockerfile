@@ -6,6 +6,7 @@ COPY *.sln ./
 COPY ./Domain/*.csproj ./Domain/
 COPY ./Application/*.csproj ./Application/
 COPY ./Presentation/*.csproj ./Presentation/
+COPY ./Tests/*.csproj ./Tests/
 
 # --- Restaurer les dépendances
 RUN dotnet restore 
@@ -14,7 +15,7 @@ RUN dotnet restore
 COPY ./Domain/ ./Domain/
 COPY ./Application/ ./Application/
 COPY ./Presentation/ ./Presentation/
-COPY ./Root/ ./Root/
+COPY ./Tests/ ./Tests/
 
 # publier la solution en entrant dasn le projet Presentation
 WORKDIR /app/Presentation
@@ -25,6 +26,6 @@ FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime
 WORKDIR /app
 COPY --from=build /app/Presentation/out ./
 
-EXPOSE 6000
+EXPOSE 8080
 
 ENTRYPOINT [ "dotnet", "Presentation.dll" ]
